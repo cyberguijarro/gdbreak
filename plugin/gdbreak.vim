@@ -11,13 +11,13 @@ import vim
 
 def readlines():
     try:
-        with open('.gdbinit', 'rw+') as file:
+        with open('.gdbreak', 'rw+') as file:
             return file.readlines()
     except:
         return []
 
 def writelines(lines):
-    with open('.gdbinit', 'w+') as file:
+    with open('.gdbreak', 'w+') as file:
         for line in lines:
             file.write(line)
 
