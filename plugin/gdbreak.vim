@@ -61,10 +61,20 @@ for line in lines:
 EOF
 endfunc
 
+function! GdbClear()
+python << EOF
+writelines([])
+vim.command(':call GdbLoad()')
+EOF
+endfunc
+
 command! GdbToggle call GdbToggle()
 command! GdbLoad call GdbLoad()
+command! GdbClear call GdbClear()
 
 augroup doc
     autocmd!
     autocmd BufReadPost * :call GdbLoad()
 augroup END
+
+nnoremap <Leader>b :call GdbToggle()<CR>
